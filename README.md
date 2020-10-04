@@ -1,2 +1,2 @@
 # ProjectEuler
-Programmed solutions of Project Euler problems 
+Programmed solutions for Project Euler problems 
