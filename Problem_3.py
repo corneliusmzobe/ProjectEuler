@@ -19,6 +19,6 @@ def largestFactor(n):
              if n%x == 0:
                     n = n/x
                     myList.append(x)
-                    print(x, sep=", ")
+                    print(x, sep=',')
     return myList[-1]
 largestFactor(600851475143)
