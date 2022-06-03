@@ -15,25 +15,27 @@ def getNumberOfSumOfTwos(pentNum, index):
     n = index
     i = 1
     count = 0
-    while (index > i):
-        temp = Pm(n-i)
+    
+    for i in range(index-1, 1, -1):
+        temp = Pm(i)
         diff = pentNum - temp
+        if (temp < diff):
+            break
+
         if (isPenNumber(diff)):
-            if (getPenIndex(temp) != getPenIndex(diff)):
-                newIndex = getPenIndex(diff)
-                if(Pm(newIndex) + Pm(n-i) == pentNum):
-                    count += 1
-                    print('Pn(', index, ') = ', Pm(newIndex), ' + ', Pm(n-i), ' = ', Pm(index), ' Count: ', int(count/2))
-        i = i+1
-    return int(count/2)
-m = 1
-count = 1
-LIMIT = 5
+            newIndex = getPenIndex(diff)
+            if(Pm(newIndex) + Pm(i) == pentNum):
+                count += 1
+                print('Pn(', index, ') = ', Pm(newIndex), ' + ', Pm(i), ' = ', Pm(index), ' Count: ', count)
+    return count
+m = 98873
+count = 0
+LIMIT = 20
+
 while (count < LIMIT):
     count = getNumberOfSumOfTwos(Pm(m), m)
     if(count >= LIMIT):
         print('Pn(', m, '): ', Pm(m), 'Count: ', count)
     m += 1
-    # print('Count: ', count, 'm: ', m)
 
-#print('Index: ',getPenIndex(107602))
+#Pn( 157724 ):  37315211402 Count:  24
